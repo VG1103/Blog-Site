@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG AWAY</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+<body>
+    <h1> Welcome to this Blogging Website</h1>
+    <a href="/create_post">Create a New Post</a>
+    <div id="posts">
+        {% for post in posts %}
+        <div class="post">
+            <h2>{{ post[1] }}</h2>
+            <p>{{ post[2][:100] }}...</p>
+            <a href="/post/{{ post[0] }}">Read more</a>
+            <a href="/edit/{{ post[0] }}">Edit</a>
+            <form action="/delete/{{ post[0] }}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+
+    <footer>
+        <p>© 2025 Blog Away</p>
+    </footer>
+    
+</body>
+</html>
+
+
+
